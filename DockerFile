@@ -28,8 +28,16 @@ ADD apache-tomcat-9.0.19.tar.gz /tomcat
 RUN rm -rf /tomcat/apache-tomcat-9.0.19/webapps/*
 RUN cp jenkins.war /tomcat/apache-tomcat-9.0.19/webapps/ROOT.war
 
+# install python3
+RUN apt-get install python3.5 python3-pip -y
+
 # remove useless pkg
-RUN apt autoremove -y
+RUN apt autoremove -y 
+
+# install minio-client
+RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc
+RUN chmod +x mc
+RUN ln -s /project/mc /bin/mc 
 
 # define ENTRYPOINT
 #ENTRYPOINT ["/tomcat/apache-tomcat-9.0.19/bin/catalina.sh","run"]
