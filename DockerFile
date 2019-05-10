@@ -7,6 +7,7 @@ MAINTAINER loveward94@gmail.com
 EXPOSE 8080
 EXPOSE 5000
 
+
 # running required command
 RUN apt-get update -y
 RUN apt-get upgrade -y
